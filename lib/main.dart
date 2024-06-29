@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -48,13 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(top: 20.sp),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 60.0, left: 20.0, right: 20.0),
+                padding: EdgeInsets.only(
+                    top: 30.0.sp, left: 20.0.sp, right: 20.0.sp),
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
@@ -72,93 +74,117 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
-                          top: 20.0, left: 20.0, right: 20.0),
+                      padding: EdgeInsets.only(
+                          top: 20.0.sp, left: 20.0.sp, right: 20.0.sp),
                       child: Container(
                         width: 90.w,
                         height: 9.h,
                         decoration: BoxDecoration(
                           color: Color(0xFF4D4D4D),
-                          borderRadius: BorderRadius.circular(6.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Icon(Icons.image, size: 7.5.h),
+                            Container(
+                              padding: EdgeInsets.only(left: 12.0.sp),
+                              // donot put const here as our padding will be determined in runtime
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50.0),
+                                // The ClipRRect widget doesn't modify the image itself. It clips the child widget's visible area, creating the illusion of a circular image.
+                                child: Image.asset("assets/my_imagee.jpg",
+                                    height: 7.5.h),
+                              ),
                             ),
-                            Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 8.0, left: 5.0),
-                                    child: Text(
-                                      "Sarwat Aijaz",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.sp,
+                            Container(
+                              padding:
+                                  EdgeInsets.only(top: 10.0.sp, left: 5.0.sp),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 10.0.sp, left: 15.0.sp),
+                                      child: Text(
+                                        "Sarwat Aijaz",
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 19.sp,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 5.0),
-                                    child: Text(
-                                      "Apple ID, iCloud, Media, & Purchases",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.sp,
+                                    Container(
+                                      padding: EdgeInsets.only(left: 15.0.sp),
+                                      child: Text(
+                                        "Apple ID, iCloud, Media, & Purchases",
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ]),
+                                  ]),
+                            ),
                             Spacer(),
-                            Icon(
-                              Icons.chevron_right_outlined,
-                              size: 4.h,
-                              color: Colors.grey,
+                            Container(
+                              padding: EdgeInsets.only(right: 13.0.sp),
+                              child: Icon(
+                                Icons.chevron_right_outlined,
+                                size: 3.h,
+                                color: Colors.grey,
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 30.0, left: 20.0, right: 20.0),
+                    Container(
+                      padding: EdgeInsets.only(
+                          top: 25.0.sp, left: 20.0.sp, right: 20.0.sp),
                       child: Container(
                         width: 90.w,
-                        height: 52.5.h,
                         decoration: BoxDecoration(
                           color: Color(0xFF4D4D4D),
-                          borderRadius: BorderRadius.circular(6.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Column(
                           children: [
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.airplanemode_on_rounded,
-                                    size: 6.h,
-                                    color: Colors.yellow,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.airplanemode_on_rounded,
+                                      size: 4.5.h,
+                                      color: Colors.yellow,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Airplane Mode",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Spacer(),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 5.0),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
                                   child: Container(
                                     width: 40,
                                     height: 20,
@@ -203,30 +229,41 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.wifi,
-                                    size: 6.h,
-                                    color: Colors.blue,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.wifi,
+                                      size: 4.5.h,
+                                      color: Colors.blue,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Wi-Fi",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -238,124 +275,51 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontSize: 15.sp,
                                   ),
                                 ),
-                                Icon(
-                                  Icons.chevron_right_outlined,
-                                  size: 4.h,
-                                  color: Colors.grey,
-                                ),
-                              ],
-                            ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.bluetooth,
-                                    size: 6.h,
-                                    color: Colors.blueAccent,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
-                                  child: Text(
-                                    "Bluetooth",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
-                                    ),
-                                  ),
-                                ),
-                                Spacer(),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 40.0),
-                                  child: Row(children: [
-                                    Text(
-                                      "On",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 18.sp,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.chevron_right_outlined,
-                                      size: 4.h,
-                                      color: Colors.grey,
-                                    ),
-                                  ]),
-                                ),
-                              ],
-                            ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.data_exploration_rounded,
-                                    size: 6.h,
-                                    color: Colors.greenAccent,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
-                                  child: Text(
-                                    "Mobile Service",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
-                                    ),
-                                  ),
-                                ),
-                                Spacer(),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 40.0),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
                                   child: Icon(
                                     Icons.chevron_right_outlined,
-                                    size: 4.h,
+                                    size: 3.h,
                                     color: Colors.grey,
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.hot_tub_rounded,
-                                    size: 6.h,
-                                    color: Colors.green,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.bluetooth,
+                                      size: 4.5.h,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
-                                    "Personal Hotspot",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    "Bluetooth",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -364,46 +328,112 @@ class _MyHomePageState extends State<MyHomePage> {
                                   padding:
                                       EdgeInsets.only(top: 5.0, left: 40.0),
                                   child: Row(children: [
-                                    Text(
-                                      "Off",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 18.sp,
+                                    Container(
+                                      padding: EdgeInsets.only(right: 5.0.sp),
+                                      child: Text(
+                                        "On",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 18.sp,
+                                        ),
                                       ),
                                     ),
-                                    Icon(
-                                      Icons.chevron_right_outlined,
-                                      size: 4.h,
-                                      color: Colors.grey,
+                                    Container(
+                                      padding: EdgeInsets.only(right: 13.0.sp),
+                                      child: Icon(
+                                        Icons.chevron_right_outlined,
+                                        size: 3.h,
+                                        color: Colors.grey,
+                                      ),
                                     ),
                                   ]),
                                 ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.network_locked,
-                                    size: 6.h,
-                                    color: Colors.blueAccent,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.data_exploration_rounded,
+                                      size: 4.5.h,
+                                      color: Colors.greenAccent,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
-                                    "VPN",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    "Mobile Service",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Spacer(),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
+                                  child: Icon(
+                                    Icons.chevron_right_outlined,
+                                    size: 3.h,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.hot_tub_rounded,
+                                      size: 4.5.h,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
+                                  child: Text(
+                                    "Personal Hotspot",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -412,17 +442,88 @@ class _MyHomePageState extends State<MyHomePage> {
                                   padding:
                                       EdgeInsets.only(top: 5.0, left: 40.0),
                                   child: Row(children: [
-                                    Text(
-                                      "Not Connected",
-                                      style: TextStyle(
+                                    Container(
+                                      padding: EdgeInsets.only(right: 5.0.sp),
+                                      child: Text(
+                                        "Off",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 18.sp,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(right: 13.0.sp),
+                                      child: Icon(
+                                        Icons.chevron_right_outlined,
+                                        size: 3.h,
                                         color: Colors.grey,
+                                      ),
+                                    ),
+                                  ]),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.network_locked,
+                                      size: 4.5.h,
+                                      color: Colors.blueAccent,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
+                                  child: Text(
+                                    "VPN",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
                                         fontSize: 18.sp,
                                       ),
                                     ),
-                                    Icon(
-                                      Icons.chevron_right_outlined,
-                                      size: 4.h,
-                                      color: Colors.grey,
+                                  ),
+                                ),
+                                Spacer(),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(top: 5.0, left: 40.0),
+                                  child: Row(children: [
+                                    Container(
+                                      padding: EdgeInsets.only(right: 5.0.sp),
+                                      child: Text(
+                                        "Not Connected",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 18.sp,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(right: 13.0.sp),
+                                      child: Icon(
+                                        Icons.chevron_right_outlined,
+                                        size: 3.h,
+                                        color: Colors.grey,
+                                      ),
                                     ),
                                   ]),
                                 ),
@@ -432,168 +533,202 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 30.0, left: 20.0, right: 20.0),
+                    Container(
+                      padding: EdgeInsets.only(
+                          top: 25.0.sp, left: 20.0.sp, right: 20.0.sp, bottom:10.0.sp),
                       child: Container(
                         width: 90.w,
-                        height: 35.h,
                         decoration: BoxDecoration(
                           color: Color(0xFF4D4D4D),
-                          borderRadius: BorderRadius.circular(6.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Column(
                           children: [
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.notification_add,
-                                    size: 6.h,
-                                    color: Colors.orange,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.notification_add,
+                                      size: 4.5.h,
+                                      color: Colors.orange,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Notifications",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Spacer(),
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: 18.0),
-                                      child: Icon(
-                                        Icons.chevron_right_outlined,
-                                        size: 4.h,
-                                        color: Colors.grey,
-                                      ),
-                                    )),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
+                                  child: Icon(
+                                    Icons.chevron_right_outlined,
+                                    size: 3.h,
+                                    color: Colors.grey,
+                                  ),
+                                ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.multitrack_audio_outlined,
-                                    size: 6.h,
-                                    color: Colors.pinkAccent,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.multitrack_audio_outlined,
+                                      size: 4.5.h,
+                                      color: Colors.pinkAccent,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Sounds & Haptics",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Spacer(),
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: 18.0),
-                                      child: Icon(
-                                        Icons.chevron_right_outlined,
-                                        size: 4.h,
-                                        color: Colors.grey,
-                                      ),
-                                    )),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
+                                  child: Icon(
+                                    Icons.chevron_right_outlined,
+                                    size: 3.h,
+                                    color: Colors.grey,
+                                  ),
+                                ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.shield_moon_outlined,
-                                    size: 6.h,
-                                    color: Colors.purpleAccent,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.shield_moon_outlined,
+                                      size: 4.5.h,
+                                      color: Colors.purpleAccent,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Focus",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Spacer(),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 40.0),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
                                   child: Icon(
                                     Icons.chevron_right_outlined,
-                                    size: 4.h,
+                                    size: 3.h,
                                     color: Colors.grey,
                                   ),
                                 ),
                               ],
                             ),
-                            Divider(
-                              color: Colors.grey, // Set the line color
-                              thickness: 1.0, // Set the line thickness
-                              height:
-                                  1.0, // Set the line height (optional for horizontal lines)
+                            Container(
+                              padding: EdgeInsets.only(left: 34.0.sp),
+                              child: Divider(
+                                color: Colors.grey, // Set the line color
+                                thickness: 0.5, // Set the line thickness
+                                height:
+                                    1.0, // Set the line height (optional for horizontal lines)
+                              ),
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.timer,
-                                    size: 6.h,
-                                    color: Colors.purpleAccent,
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 7.h,
+                                  padding: EdgeInsets.all(12.0.sp),
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 12.0.sp),
+                                    child: Icon(
+                                      Icons.timer,
+                                      size: 4.5.h,
+                                      color: Colors.purpleAccent,
+                                    ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 10.0),
+                                Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                      top: 5.0.sp, left: 12.0.sp),
                                   child: Text(
                                     "Screen Time",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.sp,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Spacer(),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(top: 5.0, left: 40.0),
+                                Container(
+                                  padding: EdgeInsets.only(right: 13.0.sp),
                                   child: Icon(
                                     Icons.chevron_right_outlined,
-                                    size: 4.h,
+                                    size: 3.h,
                                     color: Colors.grey,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ],
